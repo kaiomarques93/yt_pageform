@@ -37,3 +37,20 @@ model FormSubmissions {
 
   content String
 }
+
+model BlogPost {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  subtitle    String
+  description String
+  author      String
+  date        DateTime
+  image       String?
+  categories  String[]
+  active      Boolean
+  featured    Boolean?
+
+  @@unique([title, userId])
+  @@map("blog_posts")
+}
